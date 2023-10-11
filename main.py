@@ -1,12 +1,17 @@
 import torch
-from stylegan import Generator
-
-model = Generator(Z_DIM, W_DIM, IN_CHANNELS)
-model = torch.load("/workspace/mafia-gangs/models/generator.pt", map_location=torch.device('cpu'))
+from stylegan import generate_image
 
 noise = torch.randn(32, 256).to("cpu")
-steps = 5
-alpha = 1
-model.eval()
-img = model(noise, alpha, steps)
-save_image(img*0.5+0.5, f"test_img.png")
+
+import gradio as gr
+import os
+
+
+demo = gr.Interface(
+    generate_image(noise),
+    gr.Image(type="pil"),
+    "image",
+)
+
+if __name__ == "__main__":
+    demo.launch()
