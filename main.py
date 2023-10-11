@@ -1,10 +1,8 @@
 import torch
 from stylegan import generate_image
-
-noise = torch.randn(32, 256).to("cpu")
-
 import gradio as gr
-import os
+
+noise = torch.randn(36, 256).to("cpu")
 
 
 demo = gr.Interface(

@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 import torch.nn.functional as F
+import numpy as np
 
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -190,6 +191,24 @@ model.load_state_dict(torch.load("models/mafia_pixel_art_generator.pth"))
 model.eval()
 
 
+def postprocess(image_list):
+    image_list = np.array([np.transpose(i * 0.5 + 0.5, (1, 2, 0)) for i in image_list])
+
+    n = len(image_list)
+    rows = int(n**0.5)
+    columns = (n + rows - 1) // rows
+
+    horizontal_stacks = []
+    for i in range(columns):
+        start = i * rows
+        end = start + rows
+        horizontal_stack = np.hstack(image_list[start:end])
+        horizontal_stacks.append(horizontal_stack)
+    collage = np.vstack(horizontal_stacks)
+
+    return collage
+
+
 def generate_image(noise, steps=5, alpha=1):
     img = model(noise, alpha, steps)
-    return img.detach().numpy()
+    return postprocess(img.detach().numpy())
