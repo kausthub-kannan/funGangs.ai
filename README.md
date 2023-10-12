@@ -1,1 +1,1 @@
-# FunGangs.ai
+# funGangs.ai
