@@ -26,7 +26,7 @@ import axios from "axios"
 try{
   const number_of_images = 16
   const url = "http://127.0.0.1.8080/generated/{number_of_images}"
-  const generated_image = axios.get()
+  const generated_image = axios.get(url)
 }catch(err){
   console.log(err)
 }
