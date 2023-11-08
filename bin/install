@@ -5,8 +5,8 @@ VENV_NAME=venv
 python -m venv "${VENV_NAME}"
 source "${VENV_NAME}/bin/activate"
 pip install --upgrade pip==23.0.1
-python -m pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -r requirements.txt
+python -m pip install torch
 
 cat << EOF_INSTALL
 
