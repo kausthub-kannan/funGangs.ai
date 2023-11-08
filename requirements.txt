@@ -3,3 +3,4 @@ torch
 wheel
 fastapi
 opencv-python
+torchvision
