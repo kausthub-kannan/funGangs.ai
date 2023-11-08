@@ -7,7 +7,6 @@ python -m venv "${VENV_NAME}"
 source "${VENV_NAME}/bin/activate"
 pip install --upgrade pip==23.0.1
 python -m pip install -r requirements.txt
-python -m pip install torch
 
 cat << EOF_INSTALL
 
