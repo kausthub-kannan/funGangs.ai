@@ -2,6 +2,8 @@ import torch
 from stylegan import generate_image
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
+import requests
+import os
 
 
 app = FastAPI()
@@ -24,3 +26,15 @@ def image_generation(number_of_image: int):
             return message
     except RuntimeError:
         return "Device Memory Overload: Please provide less number of images"
+
+@app.get("/story/{payload}")
+def get_story(payload: str):
+    try:
+        API_URL = "https://api-inference.huggingface.co/models/coffeeee/nsfw-story-generator2"
+        headers = {"Authorization": os.getenv('HUGGING_FACE_KEY')}
+        response = requests.post(API_URL, headers=headers, json=payload)
+	    return response.json()
+        
+    except RuntimeError:
+        return "API endpoint issue, please try again or try later"
+
