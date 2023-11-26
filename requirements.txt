@@ -3,3 +3,4 @@ wheel
 fastapi
 torch
 torchvision
+supabase
