@@ -192,6 +192,16 @@ model.eval()
 
 
 def generate_image(noise, alpha=1, steps=5):
+    """
+        Generates images using the StyleGAN model
+
+        Parameters:
+            noise (tensor): shape (number_of_images, shape)
+            alpha (float): parameter to add excess noise
+
+        Returns: Image
+    """
+
     try:
         img = model(noise, alpha, steps)
         save_image(img * 0.5 + 0.5, "generated_images/predicted.png")
