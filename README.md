@@ -8,6 +8,23 @@
 3. The dataset which is trained upon is `Pixelated Treasures: 10K CryptoPunks` 
 which can be found via this [link](https://www.kaggle.com/datasets/chwasiq0569/cryptopunks-pixel-art-dataset/).
 
+## Features
+#### Image Generation:
+The image generation as said uses a StyleGAN custom-trained model.
+
+#### Story Generation:
+Currently, the story generation is supported by this [Hugging Face API interface](https://api-inference.huggingface.co/models/coffeeee/nsfw-story-generator2). For further addition and gamification, custom trained LLM model will be added.
+
+#### Database Support:
+The future of this project aims to gamify and make it user-specific. Hence Database support has been added and is in progress to store user-specific data and images.
+
+## ToDo
+The project further aims to expand to below features:
+- [x] FunGangs Image Generation
+- [ ] Story Generation based on Image-context
+- [ ] User Interactive Pix2Pix GAN Image Generation
+- [ ] Wiki API for the Gangs character
+
 ## API Docs
 Currently, the APIs support the generation of images and future expansion is the integration of LLMs for story generations.
 
