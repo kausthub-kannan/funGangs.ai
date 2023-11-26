@@ -36,6 +36,8 @@ number of images as shown in the image.
   
 Example:  
 
+**1. Fungangs Image Generation:**
+
 **JavaScript**
 ```javascript
 import axios from "axios"
@@ -62,8 +64,37 @@ except for Exception as err:
     print(err)
 
 ```
+  
+**2. Story Generation (Beta):**
+
+**JavaScript**
+```javascript
+import axios from "axios"
+
+try{
+  const payload = "The 8 member gang named 'Octagram' went to the "
+  const url = "http://127.0.0.1.8080/story/{payload}"
+  const generated_image = axios.get(url)
+}catch(err){
+  console.log(err)
+}
+```
+
+**Python**  
+```python
+import requests
+
+try:
+    const payload = "The 8 member gang named 'Octagram' went to the "
+    const url = "http://127.0.0.1.8080/story/{payload}"
+    response = requests.get(url)
+    generated_image = response.content
+except for Exception as err:
+    print(err)
+```
+
 ### Note
-The model, which is based on **StyleGAN**, requires high memory in terms of CPU and CUDA. Hence, please `restrain from generating a number of images more than the range of (8, 48)`
+The model, which is based on **StyleGAN**, requires high memory in terms of CPU and CUDA. Hence, please `restrain from generating a number of images more than the range of (8, 48)`. The story generation is on BETA as it is based on the existing Hugging Face interface. Soon custom LLM support will be added."
 
 
 
