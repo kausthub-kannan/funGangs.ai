@@ -12,11 +12,11 @@ which can be found via this [link](https://www.kaggle.com/datasets/chwasiq0569/c
 #### Image Generation:
 The image generation as said uses a StyleGAN custom-trained model.
 
-#### Story Generation:
+#### Story Generation: (TODO)
 Currently, the story generation is supported by this [Hugging Face API interface](https://api-inference.huggingface.co/models/coffeeee/nsfw-story-generator2). For further addition and gamification, custom trained LLM model will be added.
 
 #### Database Support:
-The future of this project aims to gamify and make it user-specific. Hence Database support has been added and is in progress to store user-specific data and images.
+The future of this project aims to gamify and make it user-specific. Hence, Database support has been added and is in progress to store user-specific data and images.
 
 ## ToDo
 The project further aims to expand to below features:

@@ -187,7 +187,7 @@ class Generator(nn.Module):
 
 
 model = Generator(Z_DIM, W_DIM, IN_CHANNELS)
-model.load_state_dict(torch.load("weights/stylegan_generatot_mafia_project.pth"))
+model.load_state_dict(torch.load("/home/kausthub-kannan/Desktop/funGangs.ai/server/models/weights/stylegan_generatot_mafia_project.pth"))
 model.eval()
 
 
@@ -198,6 +198,7 @@ def generate_image(noise, alpha=1, steps=5):
         Parameters:
             noise (tensor): shape (number_of_images, shape)
             alpha (float): parameter to add excess noise
+            steps (int): number of steps in the model
 
         Returns: Image
     """

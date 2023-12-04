@@ -4,3 +4,4 @@ fastapi
 torch
 torchvision
 supabase
+pydantic
