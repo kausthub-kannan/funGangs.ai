@@ -62,35 +62,6 @@ try:
     generated_image = response.content
 except for Exception as err:
     print(err)
-
-```
-  
-**2. Story Generation (Beta):**
-
-**JavaScript**
-```javascript
-import axios from "axios"
-
-try{
-  const payload = "The 8 member gang named 'Octagram' went to the "
-  const url = "http://127.0.0.1.8080/story/{payload}"
-  const generated_image = axios.get(url)
-}catch(err){
-  console.log(err)
-}
-```
-
-**Python**  
-```python
-import requests
-
-try:
-    const payload = "The 8 member gang named 'Octagram' went to the "
-    const url = "http://127.0.0.1.8080/story/{payload}"
-    response = requests.get(url)
-    generated_image = response.content
-except for Exception as err:
-    print(err)
 ```
 
 ### Note
