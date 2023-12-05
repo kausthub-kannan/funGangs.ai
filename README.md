@@ -2,7 +2,7 @@
 
 ![alt text](https://i.ibb.co/98LQsXM/Screenshot-20231013-154312.png)
 
-## NOTE: Server Down to increase in model weight size
+## NOTE: Server down due to increase in model weight size
 
 ## Background of the Model
 1. The model is trained on `StyleGAN` and PyTorch is used for the development.  
