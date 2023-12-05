@@ -11,7 +11,7 @@ COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 # Copy to the Container
-COPY ./server /app/server
+COPY . .
 
 # Run Command
 CMD uvicorn server.main:app --reload --port 8000 --host 0.0.0.0

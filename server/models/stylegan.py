@@ -187,7 +187,7 @@ class Generator(nn.Module):
 
 
 model = Generator(Z_DIM, W_DIM, IN_CHANNELS)
-model.load_state_dict(torch.load("/home/kausthub-kannan/Desktop/funGangs.ai/server/models/weights/stylegan_generatot_mafia_project.pth"))
+model.load_state_dict(torch.load("models/weights/stylegan_generatot_mafia_project.pth"))
 model.eval()
 
 
