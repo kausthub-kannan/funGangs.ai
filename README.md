@@ -2,6 +2,8 @@
 
 ![alt text](https://i.ibb.co/98LQsXM/Screenshot-20231013-154312.png)
 
+## NOTE: Server Down to increase in model weight size
+
 ## Background of the Model
 1. The model is trained on `StyleGAN` and PyTorch is used for the development.  
 2. The Jupyter Notebook is present in the following Kaggle [link](https://www.kaggle.com/code/kausthubkannan/character-generation-stylegan).  
