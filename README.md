@@ -34,7 +34,7 @@ Currently, the APIs support the generation of images and future expansion is the
 
 ### Endpoints
 
-**Image Generation:** `/generated/{number_of_images}`  
+**Image Generation:** `/generated`  
 The endpoint requires number_of_images to be entered. The response would be a single image which is a collage of a given 
 number of images as shown in the image.  
   
