@@ -3,8 +3,7 @@
 ![alt text](https://i.ibb.co/98LQsXM/Screenshot-20231013-154312.png)
 
 ## NOTE!! 
-The server is down due to an increase in model weight size
-But the image can be found at [DockerHub](https://hub.docker.com/repository/docker/kausthubkannan/fungangs-ai)
+The server is down due to an increase in model weight size but the image can be found at [DockerHub](https://hub.docker.com/repository/docker/kausthubkannan/fungangs-ai)
 
 ## Background of the Model
 1. The model is trained on `StyleGAN` and PyTorch is used for the development.  
