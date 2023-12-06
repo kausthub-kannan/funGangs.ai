@@ -49,7 +49,8 @@ import axios from "axios"
 try{
   const number_of_images = 16
   const url = "http://127.0.0.1.8080/generated/{number_of_images}"
-  const generated_image = axios.get(url)
+  const body = {"user_id": valid uuid4, "number_of_images":8}
+  const generated_image = axios.get(url, body)
 }catch(err){
   console.log(err)
 }
@@ -61,8 +62,9 @@ import requests
 
 try:
     number_of_images = 16
-    url = f"http://127.0.0.1.8080/generated/{number_of_images}"
-    response = requests.get(url)
+    url = f"http://127.0.0.1.8080/generated"
+    body = {"user_id": valid uuid4, "number_of_images":8}
+    response = requests.get(url, json=body)
     generated_image = response.content
 except for Exception as err:
     print(err)
