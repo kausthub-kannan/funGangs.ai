@@ -1,5 +1,5 @@
-from models.stylegan import generate_image
-from database import add_image
+from server.models.stylegan import generate_image
+from server.database import add_image
 import torch
 from pydantic import BaseModel
 from fastapi import FastAPI
