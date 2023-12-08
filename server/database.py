@@ -24,7 +24,7 @@ def add_image(user_id: str, image_path: str):
         supabase.storage.from_("nft-stylegan").upload(file=image_path, path=filename,
                                                       file_options={"content-type": "image/png"})
         supabase.table('users').insert({"user_id": user_id,
-                                        "file_name": current_time+".png",
+                                        "file_name": current_time + ".png",
                                         "file_type": "image",
                                         "model_used": "nft-stylegan"}).execute()
         return 200, "Image uploaded successfully"

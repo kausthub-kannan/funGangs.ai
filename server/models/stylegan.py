@@ -205,7 +205,7 @@ def generate_image(noise, alpha=1, steps=5):
 
     try:
         img = model(noise, alpha, steps)
-        save_image(img * 0.5 + 0.5, "generated_images/predicted.png")
+        save_image(img * 0.5 + 0.5, "server/generated_images/predicted.png")
         return 200, "Image Generated"
     except RuntimeError:
         return 500, "Image Generation failed"

@@ -1,6 +1,6 @@
 __pycache__
 .ruff_cache
 .python-version
-.env
+env.txt
 .venv
 .idea
