@@ -2,13 +2,13 @@
 
 ![alt text](https://i.ibb.co/98LQsXM/Screenshot-20231013-154312.png)
 
-## NOTE!! 
+## NOTE!!
 The server is down due to an increase in model weight size but the image can be found at [DockerHub](https://hub.docker.com/repository/docker/kausthubkannan/fungangs-ai)
 
 ## Background of the Model
-1. The model is trained on `StyleGAN` and PyTorch is used for the development.  
-2. The Jupyter Notebook is present in the following Kaggle [link](https://www.kaggle.com/code/kausthubkannan/character-generation-stylegan).  
-3. The dataset which is trained upon is `Pixelated Treasures: 10K CryptoPunks` 
+1. The model is trained on `StyleGAN` and PyTorch is used for the development.
+2. The Jupyter Notebook is present in the following Kaggle [link](https://www.kaggle.com/code/kausthubkannan/character-generation-stylegan).
+3. The dataset which is trained upon is `Pixelated Treasures: 10K CryptoPunks`
 which can be found via this [link](https://www.kaggle.com/datasets/chwasiq0569/cryptopunks-pixel-art-dataset/).
 
 ## Features
@@ -33,11 +33,11 @@ Currently, the APIs support the generation of images and future expansion is the
 
 ### Endpoints
 
-**Image Generation:** `/generated`  
-The endpoint requires number_of_images to be entered. The response would be a single image which is a collage of a given 
-number of images as shown in the image.  
-  
-Example:  
+**Image Generation:** `/generated`
+The endpoint requires number_of_images to be entered. The response would be a single image which is a collage of a given
+number of images as shown in the image.
+
+Example:
 
 **1. Fungangs Image Generation:**
 
@@ -55,7 +55,7 @@ try{
 }
 ```
 
-**Python**  
+**Python**
 ```python
 import requests
 
