@@ -2,16 +2,16 @@
 FROM python:3.10
 
 # Set the working directory to /server
-WORKDIR /app
+WORKDIR /server
 
-# Copy requirements.txt to /server
-COPY ./requirements.txt /app/requirements.txt
+# Copy ./requirements/prod.txt to /server
+COPY ./requirements/prod.txt /server/requirements.txt
 
 # Install dependencies
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /server/requirements.txt
 
 # Copy to the Container
-COPY /server /app/server
+COPY /app /server/app
 
 # Run Command
-CMD uvicorn server.main:app --reload --port 8000 --host 0.0.0.0
+CMD uvicorn app.main:app --reload --port 8000 --host 0.0.0.0

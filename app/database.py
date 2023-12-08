@@ -9,8 +9,7 @@ supabase: Client = create_client(url, key)
 
 
 def add_image(user_id: str, image_path: str):
-    """
-    Adds the image to the database
+    """Adds the image to the database.
 
     Parameters:
         user_id (str): user id of the user
@@ -24,6 +23,7 @@ def add_image(user_id: str, image_path: str):
         supabase.storage.from_("nft-stylegan").upload(
             file=image_path, path=filename, file_options={"content-type": "image/png"}
         )
+        image_url = supabase.storage.from_("nft-stylegan").get_public_url(filename)
         supabase.table("users").insert(
             {
                 "user_id": user_id,
@@ -32,6 +32,11 @@ def add_image(user_id: str, image_path: str):
                 "model_used": "nft-stylegan",
             }
         ).execute()
-        return 200, "Image uploaded successfully"
+        data = {"url": image_url}
+        return {
+            "statusCode": 200,
+            "message": "Image uploaded successfully",
+            "data": data,
+        }
     except Exception as e:
-        return 500, e
+        return e
