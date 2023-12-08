@@ -2,10 +2,13 @@
 
 ![alt text](https://i.ibb.co/98LQsXM/Screenshot-20231013-154312.png)
 
+## NOTE!! 
+The server is down due to an increase in model weight size but the image can be found at [DockerHub](https://hub.docker.com/repository/docker/kausthubkannan/fungangs-ai)
+
 ## Background of the Model
-1. The model is trained on `StyleGAN` and PyTorch is used for the development.
-2. The Jupyter Notebook is present in the following Kaggle [link](https://www.kaggle.com/code/kausthubkannan/character-generation-stylegan).
-3. The dataset which is trained upon is `Pixelated Treasures: 10K CryptoPunks`
+1. The model is trained on `StyleGAN` and PyTorch is used for the development.  
+2. The Jupyter Notebook is present in the following Kaggle [link](https://www.kaggle.com/code/kausthubkannan/character-generation-stylegan).  
+3. The dataset which is trained upon is `Pixelated Treasures: 10K CryptoPunks` 
 which can be found via this [link](https://www.kaggle.com/datasets/chwasiq0569/cryptopunks-pixel-art-dataset/).
 
 ## Features
@@ -30,11 +33,11 @@ Currently, the APIs support the generation of images and future expansion is the
 
 ### Endpoints
 
-**Image Generation:** `/generated/{number_of_images}`
-The endpoint requires number_of_images to be entered. The response would be a single image which is a collage of a given
-number of images as shown in the image.
-
-Example:
+**Image Generation:** `/generated`  
+The endpoint requires number_of_images to be entered. The response would be a single image which is a collage of a given 
+number of images as shown in the image.  
+  
+Example:  
 
 **1. Fungangs Image Generation:**
 
@@ -45,49 +48,22 @@ import axios from "axios"
 try{
   const number_of_images = 16
   const url = "http://127.0.0.1.8080/generated/{number_of_images}"
-  const generated_image = axios.get(url)
+  const body = {"user_id": valid uuid4, "number_of_images":8}
+  const generated_image = axios.get(url, body)
 }catch(err){
   console.log(err)
 }
 ```
 
-**Python**
+**Python**  
 ```python
 import requests
 
 try:
     number_of_images = 16
-    url = f"http://127.0.0.1.8080/generated/{number_of_images}"
-    response = requests.get(url)
-    generated_image = response.content
-except for Exception as err:
-    print(err)
-
-```
-
-**2. Story Generation (Beta):**
-
-**JavaScript**
-```javascript
-import axios from "axios"
-
-try{
-  const payload = "The 8 member gang named 'Octagram' went to the "
-  const url = "http://127.0.0.1.8080/story/{payload}"
-  const generated_image = axios.get(url)
-}catch(err){
-  console.log(err)
-}
-```
-
-**Python**
-```python
-import requests
-
-try:
-    const payload = "The 8 member gang named 'Octagram' went to the "
-    const url = "http://127.0.0.1.8080/story/{payload}"
-    response = requests.get(url)
+    url = f"http://127.0.0.1.8080/generated"
+    body = {"user_id": valid uuid4, "number_of_images":8}
+    response = requests.get(url, json=body)
     generated_image = response.content
 except for Exception as err:
     print(err)
