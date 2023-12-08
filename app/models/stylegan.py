@@ -1,3 +1,4 @@
+import os
 import torch
 from torch import nn
 import torch.nn.functional as F
@@ -188,14 +189,13 @@ class Generator(nn.Module):
 
 model = Generator(Z_DIM, W_DIM, IN_CHANNELS)
 model.load_state_dict(
-    torch.load("server/models/weights/stylegan_generatot_mafia_project.pth")
+    torch.load("app/models/weights/stylegan_generatot_mafia_project.pth")
 )
 model.eval()
 
 
 def generate_image(noise, alpha=1, steps=5):
-    """
-    Generates images using the StyleGAN model
+    """Generates images using the StyleGAN model.
 
     Parameters:
         noise (tensor): shape (number_of_images, shape)
@@ -207,7 +207,11 @@ def generate_image(noise, alpha=1, steps=5):
 
     try:
         img = model(noise, alpha, steps)
-        save_image(img * 0.5 + 0.5, "server/generated_images/predicted.png")
-        return 200, "Image Generated"
+        filepath = os.path.abspath("app/generated_images/predicted.png")
+        save_image(img * 0.5 + 0.5, filepath)
+        return {
+            "url": filepath,
+            "message": "Image Generated Successfully",
+        }
     except RuntimeError:
-        return 500, "Image Generation failed"
+        return {"message": "Generation Failure"}
