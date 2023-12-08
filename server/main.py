@@ -26,7 +26,9 @@ def image_generation(gan: GAN):
     try:
         noise = torch.randn(gan.number_of_image, 256).to("cpu")
         status, message1 = generate_image(noise, gan.alpha, gan.steps)
-        status, message2 = add_image(gan.user_id, "server/generated_images/predicted.png")
+        status, message2 = add_image(
+            gan.user_id, "server/generated_images/predicted.png"
+        )
 
         if status == 200:
             return FileResponse("server/generated_images/predicted.png")
@@ -34,5 +36,3 @@ def image_generation(gan: GAN):
             return {message1}
     except RuntimeError:
         return "Device Memory Overload: Please provide lesser number of images"
-
-
