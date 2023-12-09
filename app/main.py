@@ -21,11 +21,12 @@ def read_root():
 
 
 @app.post("/pixel-art/generate")
-def image_generation(gan: GAN):
+def pixel_art_generation(gan: GAN):
     try:
         noise = torch.randn(gan.number_of_image, 256).to("cpu")
-        url, _ = generate_image(noise, gan.alpha, gan.steps)
-        data = add_image(gan.user_id, url)
+        generated_data = generate_image(noise, gan.alpha, gan.steps)
+        data = add_image(gan.user_id, generated_data["url"])
+
         return data
     except RuntimeError:
         return {

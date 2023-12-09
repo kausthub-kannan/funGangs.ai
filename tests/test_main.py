@@ -12,8 +12,9 @@ class PixelArtGenerate(BaseModel):
     steps: int = 5
 
 
-def pixel_art_test():
+def test_pixel_art_generation():
     response = client.post(
-        "/pixel-art/generate", json=PixelArtGenerate().model_dump_json()
+        "/pixel-art/generate", json=PixelArtGenerate().model_dump()
     )
+    print(response.json())
     assert response.status_code == 200
