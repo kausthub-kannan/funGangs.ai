@@ -1,9 +1,9 @@
 import os
-import torch
-from torch import nn
-import torch.nn.functional as F
-from torchvision.utils import save_image
 
+import torch
+import torch.nn.functional as F
+from torch import nn
+from torchvision.utils import save_image
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 CHANNELS_IMG = 3
@@ -19,7 +19,7 @@ class WSLinear(nn.Module):
         in_features,
         out_features,
     ):
-        super(WSLinear, self).__init__()
+        super().__init__()
         self.linear = nn.Linear(in_features, out_features)
         self.scale = (2 / in_features) ** 0.5
         self.bias = self.linear.bias
@@ -84,7 +84,7 @@ class InjectNoise(nn.Module):
 
 class WSConv2d(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, padding=1):
-        super(WSConv2d, self).__init__()
+        super().__init__()
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding)
         self.scale = (2 / (in_channels * (kernel_size**2))) ** 0.5
         self.bias = self.conv.bias
@@ -99,7 +99,7 @@ class WSConv2d(nn.Module):
 
 class PixelNorm(nn.Module):
     def __init__(self):
-        super(PixelNorm, self).__init__()
+        super().__init__()
         self.epsilon = 1e-8
 
     def forward(self, x):
@@ -108,7 +108,7 @@ class PixelNorm(nn.Module):
 
 class ConvBlock(nn.Module):
     def __init__(self, in_channels, out_channels):
-        super(ConvBlock, self).__init__()
+        super().__init__()
         self.conv1 = WSConv2d(in_channels, out_channels)
         self.conv2 = WSConv2d(out_channels, out_channels)
         self.leaky = nn.LeakyReLU(0.2)
@@ -121,7 +121,7 @@ class ConvBlock(nn.Module):
 
 class GenBlock(nn.Module):
     def __init__(self, in_channels, out_channels, w_dim):
-        super(GenBlock, self).__init__()
+        super().__init__()
         self.conv1 = WSConv2d(in_channels, out_channels)
         self.conv2 = WSConv2d(out_channels, out_channels)
         self.leaky = nn.LeakyReLU(0.2, inplace=True)
@@ -138,7 +138,7 @@ class GenBlock(nn.Module):
 
 class Generator(nn.Module):
     def __init__(self, z_dim, w_dim, in_channels, img_channels=3):
-        super(Generator, self).__init__()
+        super().__init__()
         self.starting_constant = nn.Parameter(torch.ones((1, in_channels, 4, 4)))
         self.map = MappingNetwork(z_dim, w_dim)
         self.initial_adain1 = AdaIN(in_channels, w_dim)

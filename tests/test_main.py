@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient
 from pydantic import BaseModel
+
 from app.main import app
 
 client = TestClient(app)

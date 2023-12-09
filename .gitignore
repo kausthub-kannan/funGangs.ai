@@ -5,3 +5,4 @@ env.txt
 .venv
 .idea
 .pytest_cache
+.isort.cfg
