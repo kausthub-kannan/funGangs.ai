@@ -1,9 +1,9 @@
-from app.models.stylegan import generate_image
-from app.database import add_image
 import torch
-from pydantic import BaseModel
 from fastapi import FastAPI
+from pydantic import BaseModel
 
+from app.database import add_image
+from app.models.stylegan import generate_image
 
 app = FastAPI()
 

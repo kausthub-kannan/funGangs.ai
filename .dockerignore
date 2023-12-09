@@ -6,3 +6,4 @@ env.txt
 .idea
 tests
 .pytest_cache
+.github/.isort.cfg
