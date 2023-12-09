@@ -9,10 +9,10 @@ app = FastAPI()
 
 
 class GAN(BaseModel):
-    user_id: str | None = "46d7b008-92d8-11ee-b9d1-0242ac120002"
-    number_of_image: int | None = 1
-    alpha: float | None = 1
-    steps: int | None = 5
+    user_id: str
+    number_of_image: int
+    alpha: float
+    steps: int
 
 
 @app.get("/")
