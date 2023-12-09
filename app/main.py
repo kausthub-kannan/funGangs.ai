@@ -9,10 +9,10 @@ app = FastAPI()
 
 
 class GAN(BaseModel):
-    user_id: str | None = "46d7b008-92d8-11ee-b9d1-0242ac120002"
-    number_of_image: int | None = 1
-    alpha: float | None = 1
-    steps: int | None = 5
+    user_id: str
+    number_of_image: int
+    alpha: float
+    steps: int
 
 
 @app.get("/")
@@ -21,11 +21,12 @@ def read_root():
 
 
 @app.post("/pixel-art/generate")
-def image_generation(gan: GAN):
+def pixel_art_generation(gan: GAN):
     try:
         noise = torch.randn(gan.number_of_image, 256).to("cpu")
-        url, _ = generate_image(noise, gan.alpha, gan.steps)
-        data = add_image(gan.user_id, url)
+        generated_data = generate_image(noise, gan.alpha, gan.steps)
+        data = add_image(gan.user_id, generated_data["url"])
+
         return data
     except RuntimeError:
         return {
