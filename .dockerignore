@@ -4,3 +4,5 @@ __pycache__
 env.txt
 .venv
 .idea
+tests
+.pytest_cache
