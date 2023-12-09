@@ -8,3 +8,4 @@ torch==2.1.1+cpu
 torchvision==0.16.1+cpu
 uvicorn[standard]
 wheel
+pytest
